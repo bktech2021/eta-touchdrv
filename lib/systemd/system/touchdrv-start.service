@@ -1,0 +1,8 @@
+[Unit]
+Description=Non-HID touchscreen servers
+
+[Service]
+ExecStart=/usr/bin/bash -c "insmod /usr/src/eta-touchdrv/touch2/OpticalDrv.ko && /usr/src/eta-touchdrv/touch4/OtdDrv.ko"
+
+[Install]
+WantedBy=multi-user.target

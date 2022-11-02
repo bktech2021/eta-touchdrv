@@ -1,6 +1,6 @@
-####################################################################
+###################################################################
 
-MODULE = OtdDrv
+MODULE = OpticalDrv
 
 GCC = gcc
 
@@ -16,11 +16,11 @@ else
 	KERNELDIR := /lib/modules/$(shell uname -r)/build
 	PWD := $(shell pwd)
 all:
-	$(MAKE) -C $(KERNELDIR) SUBDIRS=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 
 new rebuild:	clean all
 
 clean:
-	rm -f *.o *.mod.o *.ko *.mod.c *.cmd *.*~ *~ Module.* modules.*
+	rm -rf .m* .M* .O* *.mod *.cmd *.o *.ko *.mod.* Mo* mo*
 endif
 
