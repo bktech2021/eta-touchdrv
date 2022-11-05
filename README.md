@@ -49,6 +49,7 @@ $ mkdir ~/eta-touchdrv
 $ cd ~/eta-touchdrv
 $ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/PKGBUILD
 $ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/uninstall.sh
+$ chmod +x uninstall.sh
 $ makepkg -sc
 # ./uninstall.sh
 # pacman -U eta-touchdrv*

@@ -24,10 +24,8 @@ build() {
 	cd /usr/src/${pkgname}
 	cd touch2/
 	sudo make
-	sudo insmod OpticalDrv.ko
 	cd ../touch4
 	sudo make
-	sudo insmod OtdDrv.ko
 	cd ../
 	sudo dkms install .
 
