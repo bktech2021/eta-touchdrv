@@ -13,7 +13,7 @@ optdepends=('touchegg: Touchscreen configuraton'
             'touche: Touchscreen configuraton tool')
 
 prepare() {
-		git clone "${url}"
+	git clone "${url}"
 
         cd ${pkgname}
 
