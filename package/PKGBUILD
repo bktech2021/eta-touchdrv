@@ -1,4 +1,4 @@
-# Maintainer: deneme <deneme@deneme.domain>
+# Maintainer: Abdullah Cunuk <abdullahcunuk@hotmail.com>
 pkgname="eta-touchdrv"
 pkgver="0.2.0"
 pkgrel="1"
@@ -6,9 +6,8 @@ pkgdesc="Touchscreen driver for Vestel 14MB24A (IRTOUCH)"
 arch=("any")
 url="https://github.com/abdullah-rgb/eta-touchdrv"
 license=("custom")
-# depends=(git linux linux-headers)
-# makedepends=(base-devel dkms usbutils systemd)
-checkdepends=()
+depends=(base-devel dkms usbutils systemd)
+makedepends=(git)
 optdepends=('touchegg: Touchscreen configuraton'
             'touche: Touchscreen configuraton tool')
 

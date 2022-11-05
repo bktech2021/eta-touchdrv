@@ -45,8 +45,10 @@ $ cd ..
 * $: `normal` kullanıcı
 
 ```
-$ git clone https://github.com/abdullah-rgb/eta-touchdrv ~/eta-touchdrv
-$ cd ~/eta-touchdrv/package
+$ mkdir ~/eta-touchdrv
+$ cd ~/eta-touchdrv
+$ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/PKGBUILD
+$ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/uninstall.sh
 $ makepkg -sc
 # ./uninstall.sh
 # pacman -U eta-touchdrv*
