@@ -17,7 +17,7 @@
 * #: `root` kullanıcısı / yetkileri
 * $: `normal` kullanıcı
 
-```shell
+```
 $ git clone https://github.com/abdullah-rgb/eta-touchdrv ~/eta-touchdrv
 $ cd ~/eta-touchdrv/usr/
 
@@ -44,7 +44,7 @@ $ cd ..
 * #: `root` kullanıcısı / yetkileri
 * $: `normal` kullanıcı
 
-```shell
+```
 $ git clone https://github.com/abdullah-rgb/eta-touchdrv ~/eta-touchdrv
 $ cd ~/eta-touchdrv/package
 $ makepkg -sc
