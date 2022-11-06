@@ -14,10 +14,10 @@ optdepends=('touchegg: Touchscreen configuraton'
 prepare() {
 	git clone "${url}"
 
-        cd ${pkgname}
+    cd ${pkgname}
 
-        sudo cp -rv usr/src/eta-touchdrv /usr/src/
-        sudo cp -rv usr/lib/systemd/system/* /usr/lib//systemd/system/
+    sudo cp -rv usr/src/eta-touchdrv /usr/src/
+    sudo cp -rv usr/lib/systemd/system/* /usr/lib//systemd/system/
 }
 
 build() {
