@@ -38,19 +38,3 @@ $ cd ..
 # systemctl start eta-touchdrv && systemctl enable eta-touchdrv
 # systemctl start touchdrv-start && systemctl enable touchdrv-start
 ```
-
-#### Otomatik yöntem:
-
-* #: `root` kullanıcısı / yetkileri
-* $: `normal` kullanıcı
-
-```
-$ mkdir ~/eta-touchdrv
-$ cd ~/eta-touchdrv
-$ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/PKGBUILD
-$ wget https://raw.githubusercontent.com/abdullah-rgb/eta-touchdrv/master/package/uninstall.sh
-$ chmod +x uninstall.sh
-$ makepkg -sc
-# ./uninstall.sh
-# pacman -U eta-touchdrv*
-```
