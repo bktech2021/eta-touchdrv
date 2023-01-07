@@ -17,7 +17,7 @@
 * #: `root` kullanıcısı / yetkileri
 * $: `normal` kullanıcı
 
-```
+```console
 $ git clone https://github.com/abdullah-rgb/eta-touchdrv ~/eta-touchdrv
 $ cd ~/eta-touchdrv/usr/
 
