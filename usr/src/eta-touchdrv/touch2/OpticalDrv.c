@@ -74,7 +74,7 @@ static struct usb_class_driver optical_class = {
     .minor_base = OPTICAL_MINOR_BASE,
 };
 
-size_tstrlcpy(char *dst, const char *src, size_t dsize)
+size_t strlcpy(char *dst, const char *src, size_t dsize)
 {
 	const char *osrc = src;
 	size_t nleft = dsize;
