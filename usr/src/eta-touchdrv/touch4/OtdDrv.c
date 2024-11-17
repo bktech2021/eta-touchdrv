@@ -53,6 +53,30 @@ static struct usb_device_id const dev_table[] =
 
 static struct class *otd_class;
 
+size_t strlcpy(char *dst, const char *src, size_t dsize)
+{
+	const char *osrc = src;
+	size_t nleft = dsize;
+
+	/* Copy as many bytes as will fit. */
+	if (nleft != 0) {
+		while (--nleft != 0) {
+			if ((*dst++ = *src++) == '\0')
+				break;
+		}
+	}
+
+	/* Not enough room in dst, add NUL and traverse rest of src. */
+	if (nleft == 0) {
+		if (dsize != 0)
+			*dst = '\0';		/* NUL-terminate dst */
+		while (*src++)
+			;
+	}
+
+	return(src - osrc - 1);	/* count does not include NUL */
+}
+
 static ssize_t otd_read(struct file * filp, char * buffer, size_t count, loff_t * ppos)
 {
     int retval;
@@ -308,7 +332,7 @@ static void input_dev_init(struct input_dev* obj, device_context_pool* pool, str
     usb_to_input_id(usb_device, &obj->id);
     obj->dev.parent = parent;
 
-    //Ã»¿´³öÊµ¼ÊÓÃÍ¾
+    //æ²¡çœ‹å‡ºå®é™…ç”¨é€”
     //input_set_drvdata(obj, otd);
 
     obj->open = otd_open_device;
@@ -379,7 +403,7 @@ static int otd_probe(struct usb_interface * intf, const struct usb_device_id *id
                         {
                             cdev_init(&otd->cdev, &otd_fops);
                             otd->cdev.owner = THIS_MODULE;
-                            //ÓÉcdev_initÍê³Éops¸³Öµ
+                            //ç”±cdev_initå®Œæˆopsèµ‹å€¼
                             //otd->cdev.ops = &otd_fops;
                             retval = cdev_add(&otd->cdev, otd->dev, 1);
 
@@ -389,7 +413,7 @@ static int otd_probe(struct usb_interface * intf, const struct usb_device_id *id
                                 break;
                             }
 
-                            //ËùÓĞÉè±¸ÓÃÍ¬Ò»½áµã
+                            //æ‰€æœ‰è®¾å¤‡ç”¨åŒä¸€ç»“ç‚¹
                             otd->device = device_create(otd_class, NULL, otd->dev, NULL, DEVICE_NODE_NAME);
                             if (IS_ERR(otd->device))
                             {
@@ -405,7 +429,7 @@ static int otd_probe(struct usb_interface * intf, const struct usb_device_id *id
                     } while (false);
                     usb_set_intfdata(intf, NULL);
                 } while (false);
-                //Ô­À´Ã»ÓĞµ÷ÓÃinput_unregister_device
+                //åŸæ¥æ²¡æœ‰è°ƒç”¨input_unregister_device
                 input_unregister_device(otd->input_dev);
             } while (false);
             input_free_device(otd->input_dev);
@@ -419,13 +443,13 @@ static void otd_disconnect(struct usb_interface * intf)
 {
     device_context * otd = usb_get_intfdata(intf);
 
-    //cdev²¢·ÇÔ´ÓÚcdev_alloc£¬É¾³ı¿ÉÄÜµ¼ÖÂÄÚ´æĞ¹Â©
+    //cdevå¹¶éæºäºcdev_allocï¼Œåˆ é™¤å¯èƒ½å¯¼è‡´å†…å­˜æ³„æ¼
     //cdev_del(&otd->cdev);
     device_destroy(otd_class, otd->dev);
     unregister_chrdev_region(otd->dev, 1);
     usb_set_intfdata(intf, NULL);
     input_unregister_device(otd->input_dev);
-    //Ô­À´Ã»ÓĞµ÷ÓÃinput_free_device
+    //åŸæ¥æ²¡æœ‰è°ƒç”¨input_free_device
     input_free_device(otd->input_dev);
     kfree(otd);
 }
@@ -442,7 +466,7 @@ static int otd_init(void)
 {
     int result;
 
-    //Ö®Ç°ÔÚotd_mkdevÄÚ
+    //ä¹‹å‰åœ¨otd_mkdevå†…
     otd_class = class_create(THIS_MODULE, DEVICE_NODE_NAME);
     if (IS_ERR(otd_class))
     {
