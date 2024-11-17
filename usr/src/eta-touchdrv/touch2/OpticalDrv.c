@@ -10,7 +10,6 @@
 #include <linux/cdev.h>
 #include <asm/uaccess.h>
 #include <linux/input/mt.h>
-#include <sys/types.h>
 
 #include "OpticalDrv.h"
 
