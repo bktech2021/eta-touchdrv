@@ -467,7 +467,7 @@ static int otd_init(void)
     int result;
 
     //之前在otd_mkdev内
-    otd_class = class_create(THIS_MODULE, DEVICE_NODE_NAME);
+    otd_class = class_create(DEVICE_NODE_NAME);
     if (IS_ERR(otd_class))
     {
         err("%s: Class create failed.", __func__);
